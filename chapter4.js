@@ -101,13 +101,52 @@ function nth(list, n) {
 
 function recursiveNth(list, n) {
     if (!list) {
-        return undefined; 
+        return undefined;
     } else if (n === 0) {
-        return list.value; 
+        return list.value;
     } else {
-        return recursiveNth(list.rest, n - 1); 
+        return recursiveNth(list.rest, n - 1);
     }
 }
+
+// Deep Comparison
+
+// Your code here.
+
+function deepEqual(objOne, objTwo) {
+
+    if (objOne === objTwo) {
+        return true;
+    }
+
+    if (objOne === null || objTwo == null || typeof objOne != "object" || typeof objTwo != "object") {
+        return false;
+    }
+
+    let keysOne = Object.keys(objOne);
+    let keysTwo = Object.keys(objTwo);
+
+
+    if (keysOne.length !== keysTwo.length) {
+        return false;
+    }
+
+    for (let key of keysOne) {
+        if (!deepEqual(objOne[key], objTwo[key])) {
+            return false;
+        }
+
+    }
+
+
+    return true;
+}
+
+let obj = { here: { is: "an" }, object: 2 };
+console.log(deepEqual(obj, obj));
+console.log(deepEqual(obj, { here: 1, object: 2 }));
+console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
+
 
 
 
