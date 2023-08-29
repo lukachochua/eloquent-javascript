@@ -10,3 +10,11 @@ let flattened = arrays.reduce(function (newArray, existingArray) {
 console.log(flattened);
 
 // Your Own Loop
+
+function loop(value, testFn, updateFn, bodyFn) {
+    for(let i = value; testFn(value); value = updateFn(value)) {
+      bodyFn(value);
+    }
+  }
+  
+loop(3, n => n > 0, n => n - 1, console.log);
