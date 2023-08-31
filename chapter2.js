@@ -35,27 +35,20 @@ for (let i = 0; i < 100; i++) {
 // 3. Chessboard
 
 
-function createChessBoard(size) {
-  let chessBoard = '';
+let chessboard = '';
 
-  for (let row = 0; row < size; row++) {
-    for (let column = 0; column < size; column++) {
-      if ((row + column) % 2 == 0) {
-        chessBoard += " ";
-      }
-      else {
-        chessBoard += "#";
-      }
+for(let i = 0; i < 8; i++) {
+  for(let e = 0; e < 8; e++) {
+    if((e + i) % 2 == 0) {
+      chessboard += ' ';
+    } else {
+      chessboard += '#';
     }
-
-    chessBoard += "\n";
   }
-
-  return chessBoard;
+	chessboard += "\n";
 }
 
-let finalBoard = createChessBoard(8);
-console.log(finalBoard);
+console.log(chessboard);
 
 
 

@@ -19,18 +19,19 @@ console.log(min(-10, 0));
 
 // Recursion
 
-function isEven(number) {
-    if (number === 0) {
+function isEven(num) {
+    if (num === 0) {
         return true;
-    }
-    else if (number === 1) {
+    } else if (num === 1) {
         return false;
+    } else if (num < 0) {
+        return isEven(-num);
+    } else {
+        return isEven(num - 2);
     }
-    else if (number < 0) {
-        return isEven(-number);
-    }
-    else {
-        return isEven(number - 2);
+
+    if (num < 0) {
+        return isEven(-num);
     }
 }
 
@@ -40,27 +41,28 @@ console.log(isEven(-1));
 
 // Bean counting
 
-let countBs = function (string) {
-    let counter = 0;
+function countBs(string) {
+    let bCounter = 0;
     for (let i = 0; i < string.length; i++) {
         if (string[i] === "B") {
-            counter++;
+            bCounter++;
         }
     }
-
-    return counter;
+    return bCounter;
 }
 
-let countChar = function (string, letter) {
-    let counter = 0;
+
+function countChar(string, char) {
+    let charCounter = 0;
     for (let i = 0; i < string.length; i++) {
-        if (string[i] === letter) {
-            counter++;
+        if (string[i] === char) {
+            charCounter++;
         }
     }
-
-    return counter;
+    return charCounter;
 }
 
 console.log(countBs("BBC"));
 console.log(countChar("kakkerlak", "k"));
+
+
